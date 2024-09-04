@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Driver Files">
+      <UniqueIdentifier>{8E41214B-6785-4CFE-B992-037D68949A14}</UniqueIdentifier>
+      <Extensions>inf;inv;inx;mof;mc;</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2213f8f6-470b-4064-a526-fe173778bf96}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Include="gpt_spoofer.inf">
+      <Filter>Driver Files</Filter>
+    </Inf>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gpu.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="monitor.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="disk.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="usb.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ram.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="motherboard.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="network.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="efi.cpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="efi.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="disk.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="usb.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="monitor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="gpu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="ram.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="motherboard.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="network.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

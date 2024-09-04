@@ -1,0 +1,62 @@
+;
+; gpt_spoofer.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System ; TODO: specify appropriate Class
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider    = %ManufacturerName%
+CatalogFile = gpt_spoofer.cat
+DriverVer   = ; TODO: set DriverVer in stampinf property pages
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+gpt_spoofer.sys  = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%gpt_spoofer.DeviceDesc% = gpt_spoofer_Device, Root\gpt_spoofer ; TODO: edit hw-id
+
+[gpt_spoofer_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+gpt_spoofer.sys
+
+;-------------- Service installation
+[gpt_spoofer_Device.NT.Services]
+AddService = gpt_spoofer,%SPSVCINST_ASSOCSERVICE%, gpt_spoofer_Service_Inst
+
+; -------------- gpt_spoofer driver install sections
+[gpt_spoofer_Service_Inst]
+DisplayName    = %gpt_spoofer.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\gpt_spoofer.sys
+
+[gpt_spoofer_Device.NT.Wdf]
+KmdfService = gpt_spoofer, gpt_spoofer_wdfsect
+
+[gpt_spoofer_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "gpt_spoofer Installation Disk"
+gpt_spoofer.DeviceDesc = "gpt_spoofer Device"
+gpt_spoofer.SVCDESC = "gpt_spoofer Service"
